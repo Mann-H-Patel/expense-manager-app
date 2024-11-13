@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-wallet"></i> Expense Dashboard</h1>
+    <button id="darkModeToggle" class="toggle-btn"><i class="fas fa-moon"></i> Toggle Dark Mode</button>
+
+    <!-- Expense Form Section -->
+    <section class="card expense-form-section">
+      <h2>Add New Expense</h2>
+      <form id="expenseForm">
+        <input type="text" id="description" placeholder="Description" required>
+        <input type="number" id="amount" placeholder="Amount" required>
+        <button type="submit">Add Expense</button>
+        <button id="logoutButton" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </form>
+    </section>
+
+    <!-- Expense Table Section -->
+    <section class="expense-table-section">
+      <h2>Expense History</h2>
+      <table id="expensesTable">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Action</th>
+          <th><button class="delete-btn" onclick="deleteExpense('expense_id')"><i class="fas fa-trash-alt"></i> Delete</button></th>
+        </tr>
+        </tr>
+      </table>
+    </section>
+    
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    // Dark mode toggle functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const h1 = document.querySelector("body > div > h1")
+    const h2 = document.querySelector("body > div > section.expense-table-section > h2")
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      h1.classList.toggle('dark-mode');
+      h2.classList.toggle('dark-mode');
+      darkModeToggle.innerHTML = body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i> Toggle Light Mode' : '<i class="fas fa-moon"></i> Toggle Dark Mode';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1 class="form-title">Welcome Back</h1>
+      
+      <!-- Authentication Form -->
+      <form id="authForm" class="auth-form">
+        <input type="email" id="email" class="input-field" placeholder="Email" required>
+        <input type="password" id="password" class="input-field" placeholder="Password" required>
+        <button type="submit" class="submit-btn">Login</button>
+        <p class="switch-mode switch-mode-text" onclick="toggleMode()">Don't have an account? Sign up</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

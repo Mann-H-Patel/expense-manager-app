@@ -40,24 +40,6 @@ router.delete('/delete-expense/:id', checkLogin, (req, res) => {
   });
 });
 
-
-
-// Middleware to verify JWT
-const verifyToken = (req, res, next) => {
-  const token = req.headers['authorization']?.split(' ')[1]; // Extract token from the Authorization header
-  if (!token) {
-    return res.status(401).send('Unauthorized');
-  }
-
-  jwt.verify(token, 'your_secret_key', (err, decoded) => {
-    if (err) {
-      return res.status(401).send('Unauthorized');
-    }
-    req.userId = decoded.userId;  // Add user ID to request object
-    next();
-  });
-};
-
 // Route to get all expenses for the logged-in user
 router.get('/all', checkLogin, (req, res) => {
   const userId = req.session.userId;  // Get the user ID from the session
